@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/AVSheard/communityAdvent2/issues"
   },
-  "homepage": "https://github.com/AVSheard/communityAdvent2#readme"
+  "homepage": "https://github.com/AVSheard/communityAdvent2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "knex": "^0.21.16",
+    "pg": "^8.5.1"
+  }
 }
