@@ -18,11 +18,10 @@ describe("/api", () => {
 				.then((res) => {
 					res.body.users.forEach((user) => {
 						expect(user).to.have.all.keys([
-							"userID",
 							"username",
-							"name",
 							"email",
 							"password",
+							"avatar_url",
 						]);
 					});
 				});
