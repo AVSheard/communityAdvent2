@@ -5,6 +5,6 @@ exports.seed = function (knex) {
 		.rollback()
 		.then(() => knex.migrate.latest())
 		.then(() => {
-			const userInsertions = knex("users").insert(userData).returning("*");
+			return knex("users").insert(userData).returning("*");
 		});
 };
