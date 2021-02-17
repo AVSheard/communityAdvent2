@@ -54,7 +54,7 @@ describe("/api", () => {
 		describe("/:username", () => {
 			it("GET - 200 for successful request for specific user", () => {
 				return request(app)
-					.get("/api/user/a_sheard")
+					.get("/api/users/a_sheard")
 					.expect(200)
 					.then((res) => {
 						expect(res.body.user).to.have.all.keys([
