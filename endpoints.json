@@ -1,0 +1,25 @@
+{
+	"GET /api": {
+		"description": "serves up a json representation of all the available endpoints of the api"
+	},
+	"GET /api/users": {
+		"description": "serves up array of all users",
+		"queries": [],
+		"exampleResponse": {
+			"users": [
+				{
+					"username": "a_sheard",
+					"email": "a_sheard@yahoo.co.uk",
+					"password": "password1",
+					"avatar_url": "undefined"
+				},
+				{
+					"username": "avsheard",
+					"email": "avsheard@gmail.com",
+					"password": "password2",
+					"avatar_url": "undefined"
+				}
+			]
+		}
+	}
+}
