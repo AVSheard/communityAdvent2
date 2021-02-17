@@ -35,12 +35,7 @@ describe("/api", () => {
 				.expect(200)
 				.then((res) => {
 					res.body.users.forEach((user) => {
-						expect(user).to.have.all.keys([
-							"username",
-							"email",
-							"password",
-							"avatar_url",
-						]);
+						expect(user).to.have.all.keys(["username", "email", "avatar_url"]);
 					});
 				});
 		});
