@@ -10,6 +10,12 @@ describe("/api", () => {
 	beforeEach(() => connection.seed.run());
 	after(() => connection.destroy());
 
+	describe("/", () => {
+		it("GET - 200 for successful request for JSON list of available api endpoints", () => {
+			return request(app).get("/api").expect(200);
+		});
+	});
+
 	describe("/users", () => {
 		it("GET - 200 for successful request for list of users", () => {
 			return request(app)
