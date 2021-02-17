@@ -51,5 +51,19 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
+		describe("/:username", () => {
+			it("GET - 200 for successful request for specific user", () => {
+				return request(app)
+					.get("/api/user/a_sheard")
+					.expect(200)
+					.then((res) => {
+						expect(res.body.user).to.have.all.keys([
+							"username",
+							"avatar_url",
+							"email",
+						]);
+					});
+			});
+		});
 	});
 });
