@@ -8,7 +8,7 @@
 
 ### Project summary
 
-This repo contains the backend for an organizational and navigational tool to assist with community run village advent calendars.
+This repo contains the backend for an organizational and navigational tool to assist with community run village advent calendars. Each year during advent villages run there own village wide advent calendars where each day a different house reveals a wide display that gets kept up until the end of twelfth night. The aim of this project to make a mobile application that displays all the different houses that have ben revealed and the users location on a map. I then intend add functionality to let the user 'tick off' houses when they are near by.
 
 ### How to run this repo
 
@@ -50,4 +50,4 @@ module.exports = loginData;
 
 This repo has been designed to be run on a windows or OS operating system.
 
-This repo has been built using Node.js v13.4.0, earlier versions of Node.js may not be compatible.
+This repo has been built using Node.js v14.4.0, earlier versions of Node.js may not be compatible.
