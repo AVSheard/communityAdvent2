@@ -14,15 +14,15 @@ const getUsers = () => {
 		});
 };
 
-const getUser = () => {
+const getUser = (userUsername) => {
 	return connection
 		.select("*")
 		.from("users")
 		.where({ username: userUsername })
 		.returning("*")
 		.then((user) => {
-			delete user["password"];
-			return user;
+			delete user[0]["password"];
+			return user[0];
 		});
 };
 

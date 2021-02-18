@@ -8,7 +8,7 @@ const requestUsers = (request, response, next) => {
 };
 
 const requestUser = (request, response, next) => {
-	getUsers().then((user) => {
+	getUser(request.params.username).then((user) => {
 		response.status(200).send({ user });
 	});
 };
