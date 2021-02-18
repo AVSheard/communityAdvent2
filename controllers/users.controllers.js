@@ -1,5 +1,5 @@
 const { request, response } = require("../app");
-const { getUsers } = require("../models/users.models");
+const { getUsers, getUser } = require("../models/users.models");
 
 const requestUsers = (request, response, next) => {
 	getUsers().then((users) => {

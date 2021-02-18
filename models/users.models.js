@@ -14,4 +14,16 @@ const getUsers = () => {
 		});
 };
 
-module.exports = { getUsers };
+const getUser = () => {
+	return connection
+		.select("*")
+		.from("users")
+		.where({ username: userUsername })
+		.returning("*")
+		.then((user) => {
+			delete user["password"];
+			return user;
+		});
+};
+
+module.exports = { getUsers, getUser };
