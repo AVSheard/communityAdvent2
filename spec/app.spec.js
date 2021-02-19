@@ -43,7 +43,7 @@ describe("/api", () => {
 			const invalidMethods = ["patch", "put", "delete", "post"];
 			const methodPromises = invalidMethods.map((method) => {
 				return request(app)
-					[method]("/api")
+					[method]("/api/users")
 					.expect(405)
 					.then(({ body: { msg } }) => {
 						expect(msg).to.equal("method not allowed");
@@ -51,7 +51,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe("/:username", () => {
+		describe.only("/:username", () => {
 			it("GET - 200 for successful request for specific user", () => {
 				return request(app)
 					.get("/api/users/a_sheard")
@@ -63,6 +63,18 @@ describe("/api", () => {
 							"email",
 						]);
 					});
+			});
+			it("405 for invalid methods on /api/users/:username", () => {
+				const invalidMethods = ["patch", "put", "delete", "post"];
+				const methodPromises = invalidMethods.map((method) => {
+					return request(app)
+						[method]("/api/users/a_sheard")
+						.expect(405)
+						.then(({ body: { msg } }) => {
+							expect(msg).to.equal("method not allowed");
+						});
+				});
+				return Promise.all(methodPromises);
 			});
 		});
 	});
