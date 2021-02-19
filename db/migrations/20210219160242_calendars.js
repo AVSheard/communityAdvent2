@@ -3,8 +3,8 @@ exports.up = function (knex) {
 		calendarTable.increments("calendar_id").primary();
 		calendarTable.string("name").notNullable();
 		calendarTable.string("centreName").notNullable();
-		calendarTable.float("centreLocLat").notNullable();
 		calendarTable.float("centreLocLong").notNullable();
+		calendarTable.float("centreLocLat").notNullable();
 		calendarTable.string("picture_url").notNullable();
 		calendarTable.string("admin").references("users.username").notNullable();
 	});
