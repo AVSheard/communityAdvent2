@@ -76,6 +76,14 @@ describe("/api", () => {
 				});
 				return Promise.all(methodPromises);
 			});
+			it("GET - 404 for requesting a user with a username that dose not exist", () => {
+				return request(app)
+					.get("/api/users/NOT-A-USERNAME")
+					.expect(404)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Username does not exist");
+					});
+			});
 		});
 	});
 });
