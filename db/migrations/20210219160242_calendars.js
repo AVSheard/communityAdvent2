@@ -1,7 +1,7 @@
 exports.up = function (knex) {
 	return knex.schema.createTable("calendars", (calendarTable) => {
 		calendarTable.increments("calendar_id").primary();
-		calendarTable.string("name").notNullable();
+		calendarTable.string("calendarName").notNullable();
 		calendarTable.string("centreName").notNullable();
 		calendarTable.float("centreLocLong").notNullable();
 		calendarTable.float("centreLocLat").notNullable();
