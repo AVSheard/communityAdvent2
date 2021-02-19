@@ -2,4 +2,8 @@ const invalidMethod = (req, res, next) => {
 	res.status(405).send({ msg: "method not allowed" });
 };
 
-module.exports = { invalidMethod };
+const customErrors = (err, req, res, next) => {
+	res.status(err.status).send(err);
+};
+
+module.exports = { invalidMethod, customErrors };

@@ -1,5 +1,4 @@
 const connection = require("../db/connection");
-const { password } = require("../loginData");
 
 const getUsers = () => {
 	return connection
@@ -21,6 +20,8 @@ const getUser = (userUsername) => {
 		.where({ username: userUsername })
 		.returning("*")
 		.then((user) => {
+			if (user.length === 0)
+				return Promise.reject({ status: 404, msg: "Username does not exist" });
 			delete user[0]["password"];
 			return user[0];
 		});

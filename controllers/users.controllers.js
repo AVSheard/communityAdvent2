@@ -8,9 +8,13 @@ const requestUsers = (request, response, next) => {
 };
 
 const requestUser = (request, response, next) => {
-	getUser(request.params.username).then((user) => {
-		response.status(200).send({ user });
-	});
+	getUser(request.params.username)
+		.then((user) => {
+			response.status(200).send({ user });
+		})
+		.catch((err) => {
+			next(err);
+		});
 };
 
 module.exports = { requestUsers, requestUser };
