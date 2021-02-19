@@ -19,5 +19,16 @@
 				}
 			]
 		}
+	},
+	"GET /api/users/:username": {
+		"description": "serves up object of requested user",
+		"queries": [],
+		"exampleResponse": {
+			"users": {
+				"username": "a_sheard",
+				"email": "a_sheard@yahoo.co.uk",
+				"avatar_url": "undefined"
+			}
+		}
 	}
 }
