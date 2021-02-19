@@ -13,11 +13,4 @@ module.exports = [
 		centreLocLat: -1.9983334,
 		admin: "avsheard",
 	},
-	{
-		name: "Uppermill Advent",
-		centreName: "Uppermill Methodist Church",
-		centreLocLong: 53.5488627,
-		centreLocLat: -2.0042356,
-		admin: "avsheard",
-	},
 ];
