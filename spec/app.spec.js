@@ -3,6 +3,7 @@ const { expect } = chai;
 const request = require("supertest");
 const app = require("../app");
 const connection = require("../db/connection");
+const calendars = require("../db/data/test-data/calendars");
 
 process.env.NODE_ENV = "test";
 
@@ -51,7 +52,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe.only("/:username", () => {
+		describe("/:username", () => {
 			it("GET - 200 for successful request for specific user", () => {
 				return request(app)
 					.get("/api/users/a_sheard")
@@ -84,6 +85,27 @@ describe("/api", () => {
 						expect(res.body.msg).to.equal("Username does not exist");
 					});
 			});
+		});
+	});
+
+	describe.only("/calendar", () => {
+		it("GET - 200 for successful request for list of all calendars", () => {
+			return request(app)
+				.get("/api")
+				.expect(200)
+				.then((res) =>
+					res.body.calendars.forEach(
+						expect(calendar).to.have.all.keys([
+							"calendar_id",
+							"calendarName",
+							"centreName",
+							"centreLocLong",
+							"centreLocLat",
+							"picture_url",
+							"admin",
+						])
+					)
+				);
 		});
 	});
 });
