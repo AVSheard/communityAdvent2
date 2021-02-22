@@ -11,6 +11,11 @@ const getCalendar = (id) => {
 		.where({ calendar_id: id })
 		.returning("*")
 		.then((calendar) => {
+			if (calendar.length === 0)
+				return Promise.reject({
+					status: 404,
+					msg: "Calendar_id does not exist",
+				});
 			return calendar[0];
 		});
 };

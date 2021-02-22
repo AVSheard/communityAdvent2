@@ -7,9 +7,13 @@ const requestCalendars = (request, response, next) => {
 };
 
 const requestCalendar = (request, response, next) => {
-	getCalendar(request.params.calendar_id).then((calendar) => {
-		response.status(200).send({ calendar });
-	});
+	getCalendar(request.params.calendar_id)
+		.then((calendar) => {
+			response.status(200).send({ calendar });
+		})
+		.catch((err) => {
+			next(err);
+		});
 };
 
 module.exports = { requestCalendars, requestCalendar };
