@@ -56,5 +56,20 @@
 				}
 			]
 		}
+	},
+	"GET /api/calendars/:calendar_id": {
+		"description": "serves up object of requested calendar",
+		"queries": [],
+		"exampleResponse": {
+			"calendar": {
+				"calendar_id": 1,
+				"calendarName": "Tunstead Advent",
+				"centreName": "Prospecton",
+				"centreLocLong": 53.5386,
+				"centreLocLat": -1.99691,
+				"picture_url": null,
+				"admin": "a_sheard"
+			}
+		}
 	}
 }
