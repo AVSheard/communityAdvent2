@@ -5,7 +5,7 @@ exports.up = function (knex) {
 		calendarTable.string("centreName").notNullable();
 		calendarTable.float("centreLocLong").notNullable();
 		calendarTable.float("centreLocLat").notNullable();
-		calendarTable.string("picture_url").notNullable();
+		calendarTable.string("picture_url");
 		calendarTable.string("admin").references("users.username").notNullable();
 	});
 };
