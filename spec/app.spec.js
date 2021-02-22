@@ -88,13 +88,13 @@ describe("/api", () => {
 		});
 	});
 
-	describe.only("/calendar", () => {
+	describe.only("/calendars", () => {
 		it("GET - 200 for successful request for list of all calendars", () => {
 			return request(app)
-				.get("/api")
+				.get("/api/calendars")
 				.expect(200)
-				.then((res) =>
-					res.body.calendars.forEach(
+				.then((res) => {
+					res.body.calendars.forEach((calendar) =>
 						expect(calendar).to.have.all.keys([
 							"calendar_id",
 							"calendarName",
@@ -104,8 +104,8 @@ describe("/api", () => {
 							"picture_url",
 							"admin",
 						])
-					)
-				);
+					);
+				});
 		});
 	});
 });
