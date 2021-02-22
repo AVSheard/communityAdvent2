@@ -9,7 +9,10 @@ const getCalendar = (id) => {
 		.select("*")
 		.from("calendars")
 		.where({ calendar_id: id })
-		.returning("*");
+		.returning("*")
+		.then((calendar) => {
+			return calendar[0];
+		});
 };
 
 module.exports = { getCalendars, getCalendar };
