@@ -5,6 +5,12 @@ const getCalendars = () => {
 };
 
 const getCalendar = (id) => {
+	if (isNaN(Number(id))) {
+		return Promise.reject({
+			status: 400,
+			msg: "Invalid calendar_id",
+		});
+	}
 	return connection
 		.select("*")
 		.from("calendars")
