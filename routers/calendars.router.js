@@ -6,7 +6,7 @@ const { invalidMethod } = require("../errors/errors");
 
 calendarsRouter = require("express").Router();
 
-calendarsRouter.route("/:calendar_id").get(requestCalendar);
+calendarsRouter.route("/:calendar_id").get(requestCalendar).all(invalidMethod);
 
 calendarsRouter.route("/").get(requestCalendars).all(invalidMethod);
 
