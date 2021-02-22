@@ -77,7 +77,7 @@ describe("/api", () => {
 				});
 				return Promise.all(methodPromises);
 			});
-			it("GET - 404 for requesting a user with a username that dose not exist", () => {
+			it("404 for requesting a user with a username that dose not exist", () => {
 				return request(app)
 					.get("/api/users/NOT-A-USERNAME")
 					.expect(404)
@@ -88,7 +88,7 @@ describe("/api", () => {
 		});
 	});
 
-	describe.only("/calendars", () => {
+	describe("/calendars", () => {
 		it("GET - 200 for successful request for list of all calendars", () => {
 			return request(app)
 				.get("/api/calendars")
@@ -106,6 +106,18 @@ describe("/api", () => {
 						])
 					);
 				});
+		});
+		it("405 for invalid methods on /api/calendars", () => {
+			const invalidMethods = ["patch", "put", "delete", "post"];
+			const methodPromises = invalidMethods.map((method) => {
+				return request(app)
+					[method]("/api/calendars")
+					.expect(405)
+					.then(({ body: { msg } }) => {
+						expect(msg).to.equal("method not allowed");
+					});
+			});
+			return Promise.all(methodPromises);
 		});
 	});
 });
