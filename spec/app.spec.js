@@ -148,6 +148,14 @@ describe("/api", () => {
 				});
 				return Promise.all(methodPromises);
 			});
+			it("404 for requesting a calendar with a calendar_id that dose not exist", () => {
+				return request(app)
+					.get("/api/calendars/999999999")
+					.expect(404)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Calendar_id does not exist");
+					});
+			});
 		});
 	});
 });
