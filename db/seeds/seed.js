@@ -1,4 +1,4 @@
-const { userData } = require("../data/index.js");
+const { userData, calendarData } = require("../data/index.js");
 
 exports.seed = function (knex) {
 	return knex.migrate
@@ -6,5 +6,8 @@ exports.seed = function (knex) {
 		.then(() => knex.migrate.latest())
 		.then(() => {
 			return knex("users").insert(userData).returning("*");
+		})
+		.then(() => {
+			return knex("calendars").insert(calendarData).returning("*");
 		});
 };
