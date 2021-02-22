@@ -119,7 +119,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe("/calendar_id", () => {
+		describe.only("/calendar_id", () => {
 			it("GET - 200 for successful request for specific calendar", () => {
 				return request(app)
 					.get("/api/calendars/1")
@@ -135,6 +135,18 @@ describe("/api", () => {
 							"admin",
 						]);
 					});
+			});
+			it("405 for invalid methods on /api/calendars/:calendar_id", () => {
+				const invalidMethods = ["patch", "put", "delete", "post"];
+				const methodPromises = invalidMethods.map((method) => {
+					return request(app)
+						[method]("/api/calendars/1")
+						.expect(405)
+						.then(({ body: { msg } }) => {
+							expect(msg).to.equal("method not allowed");
+						});
+				});
+				return Promise.all(methodPromises);
 			});
 		});
 	});
