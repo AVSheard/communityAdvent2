@@ -1,4 +1,3 @@
-const { request } = require("express");
 const usersRouter = require("./users.router");
 const calendarsRouter = require("./calendars.router");
 const { invalidMethod } = require("../errors/errors");
