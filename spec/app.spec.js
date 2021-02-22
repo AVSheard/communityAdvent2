@@ -119,5 +119,23 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
+		describe.only("/calendar_id", () => {
+			it("GET - 200 for successful request for specific calendar", () => {
+				return request(app)
+					.get("/api/calendars/1")
+					.expect(200)
+					.then((res) => {
+						expect(res.body.calendar).to.have.all.keys([
+							"calendar_id",
+							"calendarName",
+							"centreName",
+							"centreLocLong",
+							"centreLocLat",
+							"picture_url",
+							"admin",
+						]);
+					});
+			});
+		});
 	});
 });
