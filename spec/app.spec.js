@@ -156,6 +156,14 @@ describe("/api", () => {
 						expect(res.body.msg).to.equal("Calendar_id does not exist");
 					});
 			});
+			it("400 for requesting a calendar with an invalid calendar_id", () => {
+				return request(app)
+					.get("/api/calendars/INVALID-CALENDAR-ID")
+					.expect(400)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Invalid calendar_id");
+					});
+			});
 		});
 	});
 });
