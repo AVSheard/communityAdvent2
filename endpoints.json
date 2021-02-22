@@ -30,5 +30,31 @@
 				"avatar_url": "undefined"
 			}
 		}
+	},
+	"GET /api/calendars": {
+		"description": "serves up an array of all calendar objects",
+		"queries": [],
+		"exampleResponse": {
+			"users": [
+				{
+					"calendar_id": 1,
+					"calendarName": "Tunstead Advent",
+					"centreName": "Prospecton",
+					"centreLocLong": 53.5386,
+					"centreLocLat": -1.99691,
+					"picture_url": null,
+					"admin": "a_sheard"
+				},
+				{
+					"calendar_id": 2,
+					"calendarName": "Greenfield Advent",
+					"centreName": "St Mary's Church",
+					"centreLocLong": 53.5331,
+					"centreLocLat": -1.99833,
+					"picture_url": null,
+					"admin": "avsheard"
+				}
+			]
+		}
 	}
 }
