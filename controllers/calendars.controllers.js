@@ -7,7 +7,7 @@ const requestCalendars = (request, response, next) => {
 };
 
 const requestCalendar = (request, response, next) => {
-	getCalendars().then((calendar) => {
+	getCalendars(request.params.calendar_id).then((calendar) => {
 		response.status(200).send({ calendar });
 	});
 };
