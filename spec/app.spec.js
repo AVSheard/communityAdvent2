@@ -166,4 +166,25 @@ describe("/api", () => {
 			});
 		});
 	});
+
+	describe.only("/houses", () => {
+		it("GET - 200 for successful request for list of all houses", () => {
+			return request(app)
+				.get("/api/houses")
+				.expect(200)
+				.then((res) => {
+					res.body.houses.forEach((house) =>
+						expect(house).to.have.all.keys([
+							"house_id",
+							"day",
+							"calendar_id",
+							"houseName",
+							"houseLongLoc",
+							"houseLatLoc",
+							"housePicture",
+						])
+					);
+				});
+		});
+	});
 });
