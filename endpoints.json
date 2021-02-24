@@ -74,7 +74,7 @@
 	},
 	"GET /api/houses": {
 		"description": "serves up object of houses",
-		"queries": [],
+		"queries": ["calendar_id"],
 		"exampleResponse": {
 			"houses": [
 				{
