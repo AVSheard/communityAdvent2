@@ -198,7 +198,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe.only("/?query", () => {
+		describe("/?query", () => {
 			it("GET - 200 for successful request for list of all houses belonging to specific calendar", () => {
 				return request(app)
 					.get("/api/houses/?calendar_id=1")
@@ -227,29 +227,26 @@ describe("/api", () => {
 			});
 		});
 	});
-});
 
-describe("middleWare", () => {
-	beforeEach(() => connection.seed.run());
-	after(() => connection.destroy());
-
-	describe("doesItemExist", () => {
-		it("returns a boolean when passed three strings", () => {
-			return doesItemExist("a_sheard", "username", "users").then((actual) => {
-				expect(typeof actual).to.equal("boolean");
+	describe("middleWare", () => {
+		describe("doesItemExist", () => {
+			it("returns a boolean when passed three strings", () => {
+				return doesItemExist("a_sheard", "username", "users").then((actual) => {
+					expect(typeof actual).to.equal("boolean");
+				});
 			});
-		});
-		it("returns true when the item exists", () => {
-			return doesItemExist("a_sheard", "username", "users").then((actual) => {
-				expect(actual).to.equal(true);
+			it("returns true when the item exists", () => {
+				return doesItemExist("a_sheard", "username", "users").then((actual) => {
+					expect(actual).to.equal(true);
+				});
 			});
-		});
-		it("returns false when the item does not exists", () => {
-			return doesItemExist("NOT-AN-ITEM", "username", "users").then(
-				(actual) => {
-					expect(actual).to.equal(false);
-				}
-			);
+			it("returns false when the item does not exists", () => {
+				return doesItemExist("NOT-AN-ITEM", "username", "users").then(
+					(actual) => {
+						expect(actual).to.equal(false);
+					}
+				);
+			});
 		});
 	});
 });
