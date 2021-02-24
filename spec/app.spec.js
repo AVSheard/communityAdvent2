@@ -3,7 +3,7 @@ const { expect } = chai;
 const request = require("supertest");
 const app = require("../app");
 const connection = require("../db/connection");
-const calendars = require("../db/data/test-data/calendars");
+const { doesItemExist } = require("../models/middleware.models");
 
 process.env.NODE_ENV = "test";
 
@@ -167,7 +167,7 @@ describe("/api", () => {
 		});
 	});
 
-	describe.only("/houses", () => {
+	describe("/houses", () => {
 		it("GET - 200 for successful request for list of all houses", () => {
 			return request(app)
 				.get("/api/houses")
@@ -217,6 +217,31 @@ describe("/api", () => {
 						expect(res.body.msg).to.equal("Calendar_id does not exist");
 					});
 			});
+		});
+	});
+});
+
+describe.only("middleWare", () => {
+	beforeEach(() => connection.seed.run());
+	after(() => connection.destroy());
+
+	describe("doesItemExist", () => {
+		it("returns a boolean when passed three strings", () => {
+			return doesItemExist("a_sheard", "username", "users").then((actual) => {
+				expect(typeof actual).to.equal("boolean");
+			});
+		});
+		it("returns true when the item exists", () => {
+			return doesItemExist("a_sheard", "username", "users").then((actual) => {
+				expect(actual).to.equal(true);
+			});
+		});
+		it("returns false when the item does not exists", () => {
+			return doesItemExist("NOT-AN-ITEM", "username", "users").then(
+				(actual) => {
+					expect(actual).to.equal(false);
+				}
+			);
 		});
 	});
 });
