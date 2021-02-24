@@ -119,7 +119,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe("/calendar_id", () => {
+		describe("/:calendar_id", () => {
 			it("GET - 200 for successful request for specific calendar", () => {
 				return request(app)
 					.get("/api/calendars/1")
@@ -167,7 +167,7 @@ describe("/api", () => {
 		});
 	});
 
-	describe.only("/houses", () => {
+	describe("/houses", () => {
 		it("GET - 200 for successful request for list of all houses", () => {
 			return request(app)
 				.get("/api/houses")
