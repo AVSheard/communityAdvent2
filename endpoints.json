@@ -97,5 +97,20 @@
 				}
 			]
 		}
+	},
+	"GET /api/houses/house_id": {
+		"description": "serves up object of requested house",
+		"queries": [],
+		"exampleResponse": {
+			"house": {
+				"house_id": 2,
+				"houseName": "'Prospecton Farm, Tunstead Lane'",
+				"day": 24,
+				"houseLongLoc": 53.5383,
+				"houseLatLoc": -1.99775,
+				"calendar_id": 1,
+				"housePicture": null
+			}
+		}
 	}
 }
