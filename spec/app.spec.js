@@ -244,6 +244,18 @@ describe("/api", () => {
 						]);
 					});
 			});
+			it("405 for invalid methods on /api/houses/house_id", () => {
+				const invalidMethods = ["patch", "put", "delete", "post"];
+				const methodPromises = invalidMethods.map((method) => {
+					return request(app)
+						[method]("/api/houses/1")
+						.expect(405)
+						.then(({ body: { msg } }) => {
+							expect(msg).to.equal("method not allowed");
+						});
+				});
+				return Promise.all(methodPromises);
+			});
 		});
 	});
 
