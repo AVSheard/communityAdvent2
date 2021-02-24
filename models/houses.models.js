@@ -36,7 +36,10 @@ const getHouse = (houseID) => {
 		.select("*")
 		.from("houses")
 		.where({ house_id: houseID })
-		.returning("*");
+		.returning("*")
+		.then((house) => {
+			return house[0];
+		});
 };
 
 module.exports = { getHouses, getHouse };

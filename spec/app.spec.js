@@ -233,7 +233,7 @@ describe("/api", () => {
 					.get("/api/houses/1")
 					.expect(200)
 					.then((res) => {
-						expect(res.body.user).to.have.all.keys([
+						expect(res.body.house).to.have.all.keys([
 							"house_id",
 							"day",
 							"calendar_id",

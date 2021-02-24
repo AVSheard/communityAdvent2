@@ -11,7 +11,7 @@ const requestHouses = (request, response, next) => {
 };
 
 const requestHouse = (request, response, next) => {
-	getHouse(request.query.house_id)
+	getHouse(request.params.house_id)
 		.then((house) => {
 			response.status(200).send({ house });
 		})
