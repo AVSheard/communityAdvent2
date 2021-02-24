@@ -198,7 +198,7 @@ describe("/api", () => {
 			});
 			return Promise.all(methodPromises);
 		});
-		describe("/?query", () => {
+		describe.only("/?query", () => {
 			it("GET - 200 for successful request for list of all houses belonging to specific calendar", () => {
 				return request(app)
 					.get("/api/houses/?calendar_id=1")
@@ -217,11 +217,19 @@ describe("/api", () => {
 						expect(res.body.msg).to.equal("Calendar_id does not exist");
 					});
 			});
+			it("400 for requesting a list of houses with an invalid calendar_id", () => {
+				return request(app)
+					.get("/api/houses/?calendar_id=NOT-AN-ID")
+					.expect(400)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Invalid calendar_id");
+					});
+			});
 		});
 	});
 });
 
-describe.only("middleWare", () => {
+describe("middleWare", () => {
 	beforeEach(() => connection.seed.run());
 	after(() => connection.destroy());
 
