@@ -1,4 +1,4 @@
-const { getHouses } = require("../models/houses.models");
+const { getHouses, getHouse } = require("../models/houses.models");
 
 const requestHouses = (request, response, next) => {
 	getHouses(request.query.calendar_id)
@@ -10,4 +10,14 @@ const requestHouses = (request, response, next) => {
 		});
 };
 
-module.exports = { requestHouses };
+const requestHouse = (request, response, next) => {
+	getHouse(request.query.house_id)
+		.then((house) => {
+			response.status(200).send({ house });
+		})
+		.catch((err) => {
+			next(err);
+		});
+};
+
+module.exports = { requestHouses, requestHouse };
