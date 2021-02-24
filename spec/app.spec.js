@@ -167,7 +167,7 @@ describe("/api", () => {
 		});
 	});
 
-	describe("/houses", () => {
+	describe.only("/houses", () => {
 		it("GET - 200 for successful request for list of all houses", () => {
 			return request(app)
 				.get("/api/houses")
@@ -197,6 +197,18 @@ describe("/api", () => {
 					});
 			});
 			return Promise.all(methodPromises);
+		});
+		describe("/?query", () => {
+			it("GET - 200 for successful request for list of all houses belonging to specific calendar", () => {
+				return request(app)
+					.get("/api/houses/?calendar_id=1")
+					.expect(200)
+					.then((res) => {
+						res.body.houses.forEach((house) =>
+							expect(house.calendar_id).to.equal(1)
+						);
+					});
+			});
 		});
 	});
 });
