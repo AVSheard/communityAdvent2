@@ -71,5 +71,31 @@
 				"admin": "a_sheard"
 			}
 		}
+	},
+	"GET /api/houses": {
+		"description": "serves up object of houses",
+		"queries": [],
+		"exampleResponse": {
+			"houses": [
+				{
+					"house_id": 1,
+					"houseName": "'Prospecton, Tunstead Lane'",
+					"day": 1,
+					"houseLongLoc": 53.5386,
+					"houseLatLoc": -1.99691,
+					"calendar_id": 1,
+					"housePicture": null
+				},
+				{
+					"house_id": 2,
+					"houseName": "'Prospecton Farm, Tunstead Lane'",
+					"day": 24,
+					"houseLongLoc": 53.5383,
+					"houseLatLoc": -1.99775,
+					"calendar_id": 1,
+					"housePicture": null
+				}
+			]
+		}
 	}
 }
