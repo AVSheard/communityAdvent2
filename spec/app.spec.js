@@ -258,7 +258,7 @@ describe("/api", () => {
 			});
 			it("404 for requesting a house with an id that dose not exist", () => {
 				return request(app)
-					.get("/api/houses/:999999999")
+					.get("/api/houses/999999999")
 					.expect(404)
 					.then((res) => {
 						expect(res.body.msg).to.equal("House_id does not exist");

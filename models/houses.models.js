@@ -38,6 +38,8 @@ const getHouse = (houseID) => {
 		.where({ house_id: houseID })
 		.returning("*")
 		.then((house) => {
+			if (house.length === 0)
+				return Promise.reject({ status: 404, msg: "House_id does not exist" });
 			return house[0];
 		});
 };
