@@ -32,6 +32,12 @@ const getHouses = (reqCalID) => {
 };
 
 const getHouse = (houseID) => {
+	if (isNaN(Number(houseID))) {
+		return Promise.reject({
+			status: 400,
+			msg: "Invalid house_id",
+		});
+	}
 	return connection
 		.select("*")
 		.from("houses")
