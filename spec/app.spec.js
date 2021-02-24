@@ -226,6 +226,25 @@ describe("/api", () => {
 					});
 			});
 		});
+
+		describe.only("/:house_id", () => {
+			it("GET - 200 for successful request for specific house", () => {
+				return request(app)
+					.get("/api/houses/1")
+					.expect(200)
+					.then((res) => {
+						expect(res.body.user).to.have.all.keys([
+							"house_id",
+							"day",
+							"calendar_id",
+							"houseName",
+							"houseLongLoc",
+							"houseLatLoc",
+							"housePicture",
+						]);
+					});
+			});
+		});
 	});
 
 	describe("middleWare", () => {
