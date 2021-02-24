@@ -31,4 +31,12 @@ const getHouses = (reqCalID) => {
 	});
 };
 
-module.exports = { getHouses };
+const getHouse = (houseID) => {
+	return connection
+		.select("*")
+		.from("houses")
+		.where({ house_id: houseID })
+		.returning("*");
+};
+
+module.exports = { getHouses, getHouse };
