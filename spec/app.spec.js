@@ -264,6 +264,14 @@ describe("/api", () => {
 						expect(res.body.msg).to.equal("House_id does not exist");
 					});
 			});
+			it("400 for requesting a list of houses with an invalid house_id", () => {
+				return request(app)
+					.get("/api/houses/NOT-AN-ID")
+					.expect(400)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Invalid house_id");
+					});
+			});
 		});
 	});
 
