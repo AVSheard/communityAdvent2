@@ -6,7 +6,7 @@ const { invalidMethod } = require("../errors/errors");
 
 housesRouter = require("express").Router();
 
-housesRouter.route("/:house_id").get(requestHouse);
+housesRouter.route("/:house_id").get(requestHouse).all(invalidMethod);
 
 housesRouter.route("/").get(requestHouses).all(invalidMethod);
 
