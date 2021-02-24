@@ -209,6 +209,14 @@ describe("/api", () => {
 						);
 					});
 			});
+			it("404 for requesting a list of houses with a calendar_id that dose not exist", () => {
+				return request(app)
+					.get("/api/houses/?calendar_id=999999999")
+					.expect(404)
+					.then((res) => {
+						expect(res.body.msg).to.equal("Calendar_id does not exist");
+					});
+			});
 		});
 	});
 });
