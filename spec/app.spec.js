@@ -244,7 +244,7 @@ describe("/api", () => {
 						]);
 					});
 			});
-			it("405 for invalid methods on /api/houses/house_id", () => {
+			it("405 for invalid methods on /api/houses/:house_id", () => {
 				const invalidMethods = ["patch", "put", "delete", "post"];
 				const methodPromises = invalidMethods.map((method) => {
 					return request(app)
@@ -255,6 +255,14 @@ describe("/api", () => {
 						});
 				});
 				return Promise.all(methodPromises);
+			});
+			it("404 for requesting a house with an id that dose not exist", () => {
+				return request(app)
+					.get("/api/houses/:999999999")
+					.expect(404)
+					.then((res) => {
+						expect(res.body.msg).to.equal("House_id does not exist");
+					});
 			});
 		});
 	});
