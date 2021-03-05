@@ -4,11 +4,13 @@
 
 ### Link to hosted version
 
-(repo not yet hosted)
+https://community-advent2.herokuapp.com/api
 
 ### Project summary
 
 This repo contains the backend for an organizational and navigational tool to assist with community run village advent calendars. Each year during advent villages run there own village wide advent calendars where each day a different house reveals a wide display that gets kept up until the end of twelfth night. The aim of this project to make a mobile application that displays all the different houses that have ben revealed and the users location on a map. I then intend add functionality to let the user 'tick off' houses when they are near by.
+
+Current functionality only lets a user get information on existing calendars and the houses in them.
 
 ### How to run this repo
 
