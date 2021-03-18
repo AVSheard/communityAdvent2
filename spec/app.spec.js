@@ -227,7 +227,7 @@ describe("/api", () => {
 			});
 		});
 
-		describe.only("/:house_id", () => {
+		describe("/:house_id", () => {
 			it("GET - 200 for successful request for specific house", () => {
 				return request(app)
 					.get("/api/houses/1")
