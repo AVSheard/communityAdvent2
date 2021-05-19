@@ -6,6 +6,8 @@ const { requestJSON } = require("../controllers/api.controllers");
 
 apiRouter = require("express").Router();
 
+console.log("apiRouter");
+
 apiRouter.use("/users", usersRouter);
 
 apiRouter.use("/calendars", calendarsRouter);
