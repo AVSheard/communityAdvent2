@@ -1,10 +1,14 @@
 const usersRouter = require("./users.router");
 const calendarsRouter = require("./calendars.router");
 const housesRouter = require("./houses.router");
+const bodyParser = require("body-parser");
 const { invalidMethod } = require("../errors/errors");
 const { requestJSON } = require("../controllers/api.controllers");
 
 apiRouter = require("express").Router();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 apiRouter.use("/users", usersRouter);
 
