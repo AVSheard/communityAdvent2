@@ -1,3 +1,4 @@
+const bodyParser = require("body-parser");
 const {
 	requestUsers,
 	requestUser,
@@ -5,6 +6,9 @@ const {
 const { invalidMethod } = require("../errors/errors");
 
 usersRouter = require("express").Router();
+
+usersRouter.use(bodyParser.json());
+usersRouter.use(bodyParser.urlencoded({ extended: true }));
 
 usersRouter.route("/:username").get(requestUser).all(invalidMethod);
 

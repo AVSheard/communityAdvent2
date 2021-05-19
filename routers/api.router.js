@@ -7,8 +7,8 @@ const { requestJSON } = require("../controllers/api.controllers");
 
 apiRouter = require("express").Router();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+apiRouter.use(bodyParser.json());
+apiRouter.use(bodyParser.urlencoded({ extended: true }));
 
 apiRouter.use("/users", usersRouter);
 
