@@ -4,7 +4,7 @@
 
 ### Link to hosted version
 
-https://community-advent2.herokuapp.com/api
+https://community-advent.herokuapp.com/api
 
 ### Project summary
 
