@@ -1,11 +1,9 @@
 const { getUsers, getUser } = require("../models/users.models");
 
 const requestUsers = (request, response, next) => {
-	response.status(200).send({ user: "anthony" });
-
-	// getUsers().then((users) => {
-	// 	response.status(200).send({ users });
-	// });
+	getUsers().then((users) => {
+		response.status(200).send({ users });
+	});
 };
 
 const requestUser = (request, response, next) => {
