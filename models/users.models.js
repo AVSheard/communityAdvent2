@@ -1,16 +1,17 @@
 const connection = require("../db/connection");
 
 const getUsers = () => {
-	return connection
-		.select("*")
-		.from("users")
-		.returning("*")
-		.then((users) => {
-			return users.map((user) => {
-				delete user["password"];
-				return user;
-			});
-		});
+	return { mUser: "anthonySheard" };
+	// return connection
+	// 	.select("*")
+	// 	.from("users")
+	// 	.returning("*")
+	// 	.then((users) => {
+	// 		return users.map((user) => {
+	// 			delete user["password"];
+	// 			return user;
+	// 		});
+	// 	});
 };
 
 const getUser = (userUsername) => {
