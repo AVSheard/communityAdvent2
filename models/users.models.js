@@ -17,6 +17,7 @@ const getUsers = () => {
 };
 
 const getUser = (userUsername) => {
+	console.log("wrong model");
 	return connection
 		.select("*")
 		.from("users")
