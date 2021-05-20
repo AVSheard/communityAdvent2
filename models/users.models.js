@@ -2,7 +2,7 @@ const connection = require("../db/connection");
 
 const getUsers = () => {
 	console.log("model");
-	return Promise.reject({ status: 404, msg: "model didn't work" });
+	return Promise.reject({ status: 400, msg: "model didn't work" });
 
 	// return connection
 	// 	.select("*")
