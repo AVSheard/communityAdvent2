@@ -4,16 +4,16 @@ const getUsers = () => {
 	console.log("model");
 	return { users: "anthonySheard" };
 
-	return connection
-		.select("*")
-		.from("users")
-		.returning("*")
-		.then((users) => {
-			return users.map((user) => {
-				delete user["password"];
-				return user;
-			});
-		});
+	// return connection
+	// 	.select("*")
+	// 	.from("users")
+	// 	.returning("*")
+	// 	.then((users) => {
+	// 		return users.map((user) => {
+	// 			delete user["password"];
+	// 			return user;
+	// 		});
+	// 	});
 };
 
 const getUser = (userUsername) => {
