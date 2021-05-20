@@ -1,8 +1,9 @@
 const connection = require("../db/connection");
 
 const getUsers = () => {
-	// 	return { mUser: "anthonySheard" };
 	console.log("model");
+	return { users: "anthonySheard" };
+
 	return connection
 		.select("*")
 		.from("users")
