@@ -2,18 +2,17 @@ const connection = require("../db/connection");
 
 const getUsers = () => {
 	console.log("model");
-	return Promise.reject({ status: 400, msg: "model didn't work" });
 
-	// return connection
-	// 	.select("*")
-	// 	.from("users")
-	// 	.returning("*")
-	// 	.then((users) => {
-	// 		return users.map((user) => {
-	// 			delete user["password"];
-	// 			return user;
-	// 		});
-	// 	});
+	return connection
+		.select("*")
+		.from("users")
+		.returning("*")
+		.then((users) => {
+			return users.map((user) => {
+				delete user["password"];
+				return user;
+			});
+		});
 };
 
 const getUser = (userUsername) => {
