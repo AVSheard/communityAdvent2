@@ -2,7 +2,7 @@
 
 const getUsers = () => {
 	console.log("model");
-	return { users: "anthony" };
+	return [{ users: "anthony" }];
 	// return connection
 	// 	.select("*")
 	// 	.from("users")
